@@ -40,11 +40,20 @@ Add your folder shortcuts directly to the gesture menu for quick access, bypassi
 <summary>✨ View details</summary>
 <img width="280" height="212" alt="Folder shortcuts new look" src="https://github.com/user-attachments/assets/2c8f404a-f4be-4757-921b-7ac8569b5056"/>
 
-  Changes the folder shortcut list to show only the shortcut name!
+Changes the folder shortcut list to show only the shortcut name!
 </details>
 </details>
 
 
 <details open>
 <summary><h2>🎀 Project title Patches 🎀</h2></summary>
+  
+### 💝 [2-pt-titlebar](https://github.com/angelsangita/Koreader-Patches/blob/main/2-pt-titlebar.lua)
+<details>
+<summary>✨ View details</summary>
+<img width="485" height="55" alt="Screenshot 2025-11-05 133814" src="https://github.com/user-attachments/assets/a5f14d93-4dc0-42f6-8929-8aaa211f2576" />
+
+Changes all the icons to be the same size and fixes spacing to be more equal.
+</details>
+
 </details>
