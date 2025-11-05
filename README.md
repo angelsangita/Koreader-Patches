@@ -3,6 +3,7 @@
 ✨ *A collection of patches I've either made or tweaked.* ✨
 
 💕 Please check the [official guide here](https://koreader.rocks/user_guide/#L2-userpatches) for detailed installation instructions.💕
+
 Make sure to place your `.lua` files in the `patches` folder in your KOReader directory!
 
 ## 🎀 [Book Receipt Frankenpatch](https://github.com/angelsangita/Koreader-Patches/blob/main/2-book-receipt-frankenpatch.lua) 🎀
