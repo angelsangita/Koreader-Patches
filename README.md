@@ -56,4 +56,13 @@ Changes the folder shortcut list to show only the shortcut name!
 Changes all the icons to be the same size and fixes spacing to be more equal.
 </details>
 
+### 💝 [2-pt-mm-noborders](https://github.com/angelsangita/Koreader-Patches/blob/main/2-pt-mm-noborders.lua)
+<details>
+<summary>✨ View details</summary>
+  
+#### Removes all borders from mosaic menu mode.
+  
+<img width="300" height="400" alt="Screenshot 2025-11-05 133814" src="https://github.com/user-attachments/assets/674d5e97-ca25-41e8-8210-5299f513f26c" />
+</details>
+
 </details>
