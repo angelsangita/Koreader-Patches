@@ -1,24 +1,49 @@
-# Koreader-Patches
-Some patches I've either made or tweaked.
+# 💖 KOReader Patches 💖
 
-<div class="markdown-heading" dir="auto" style="color: #ff69b4;"><h3 tabindex="-1" class="heading-element" dir="auto" style="color: #ff69b4;"><a href="https://koreader.rocks/user_guide/#L2-userpatches" rel="nofollow" style="color: #ff69b4;">❤️ How to install a user patch ?</a></h3><a id="user-content--how-to-install-a-user-patch-" class="anchor" aria-label="Permalink: ❤️ How to install a user patch ?" href="#-how-to-install-a-user-patch-" style="color: #ff69b4;"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true" fill="#ff69b4"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
-<p dir="auto" style="color: #ff69b4;">Please <a href="https://koreader.rocks/user_guide/#L2-userpatches" rel="nofollow" style="color: #ff69b4;">check the guide here</a>.</p>
+✨ *A collection of patches I've either made or tweaked.* ✨
 
-<div class="markdown-heading" dir="auto" style="color: #ff69b4;"><h3 tabindex="-1" class="heading-element" dir="auto" style="color: #ff69b4;"><a href="https://github.com/angelsangita/Koreader-Patches/blob/main/2-stat-name-override.lua" style="color: #ff69b4;">❤️ 2-stat-name-override</a></h3><a id="user-content--2-stat-name-override" class="anchor" aria-label="Permalink: ❤️ 2-stat-name-override" href="#-2-stat-name-override" style="color: #ff69b4;"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true" fill="#ff69b4"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
-<p dir="auto" style="color: #ff69b4;">Rename any of the statistic widgets to whatever you want! Make sure to edit the lua file to your preferences.</p>
+💕 Please check the [official guide here](https://koreader.rocks/user_guide/#L2-userpatches) for detailed installation instructions.💕
+Make sure to place your `.lua` files in the `patches` folder in your KOReader directory!
 
-<div class="markdown-heading" dir="auto" style="color: #ff69b4;"><h3 tabindex="-1" class="heading-element" dir="auto" style="color: #ff69b4;"><a href="https://github.com/angelsangita/Koreader-Patches/blob/main/2-rename-gestures.lua" style="color: #ff69b4;">❤️ 2-rename-gestures</a></h3><a id="user-content--2-rename-gestures.lua" class="anchor" aria-label="Permalink: ❤️ 2-rename-gestures" href="#-2-rename-gestures.lua" style="color: #ff69b4;"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true" fill="#ff69b4"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
-<p dir="auto" style="color: #ff69b4;">So similar to the stat rename patch that it's basically only a different patch because I don't trust my ability to somehow mess it up. Rename any of the gestures to whatever you want. Make sure to edit the lua file to your preferences.</p>
+## 🎀 [Book Receipt Frankenpatch](https://github.com/angelsangita/Koreader-Patches/blob/main/2-book-receipt-frankenpatch.lua) 🎀
+<img width="280" height="212" alt="Reader_Alien kepub epub_p56_2025-11-03_122818" src="https://github.com/user-attachments/assets/817a9063-520d-4cbb-9675-e22cab17d10f"/>
 
-<div class="markdown-heading" dir="auto" style="color: #ff69b4;"><h3 tabindex="-1" class="heading-element" dir="auto" style="color: #ff69b4;"><a href="https://github.com/angelsangita/Koreader-Patches/blob/main/2-straight-to-shortcut.lua" style="color: #ff69b4;">❤️ 2-straight-to-shortcut</a></h3><a id="user-content--2-straight-to-shortcut.lua" class="anchor" aria-label="Permalink: ❤️ 2-rename-gestures" href="#-2-straight-to-shortcut.lua" style="color: #ff69b4;"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true" fill="#ff69b4"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
-<p dir="auto" style="color: #ff69b4;">Add your folder shortcuts to the gesture menu to go straight to them instead of going to the folder shortcuts list first.</p>
+💗 Based on tweaks by:
+- [u/hundredpercentcocoa](https://www.reddit.com/r/koreader/comments/1olvuc6/comment/nmktahu/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)'s original CVS receipt design
+- [u/splinters-on-cruise](https://www.reddit.com/r/koreader/comments/1on99w5/comment/nmwrieu/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)'s modifications
+- [u/SecretaryKlutzy](https://www.reddit.com/r/koreader/comments/1on99w5/love_tinkering_with_user_patches/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)'s refinements
 
-<div class="markdown-heading" dir="auto" style="color: #ff69b4;"><h3 tabindex="-1" class="heading-element" dir="auto" style="color: #ff69b4;"><a href="https://github.com/angelsangita/Koreader-Patches/blob/main/2-foldershortcut-newlook.lua" style="color: #ff69b4;">❤️ 2-foldershortcut-newlook</a></h3><a id="user-content--2-foldershortcut-newlook.lua" class="anchor" aria-label="Permalink: ❤️ 2-foldershortcut-newlook" href="#-2-foldershortcut-newlook.lua" style="color: #ff69b4;"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true" fill="#ff69b4"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
-<img width="280" height="212" alt="FileManager_2025-11-04_131954" src="https://github.com/user-attachments/assets/2c8f404a-f4be-4757-921b-7ac8569b5056" />
-<p dir="auto" style="color: #ff69b4;">Changes the folder shortcut list to show the shortcut name only.</p>
+<details open>
+<summary><h2>🎀 Normal Patches 🎀</h2></summary>
 
-<div class="markdown-heading" dir="auto" style="color: #ff69b4;"><h3 tabindex="-1" class="heading-element" dir="auto" style="color: #ff69b4;"><a href="https://github.com/angelsangita/Koreader-Patches/blob/main/2-book-receipt-frankenpatch.lua" style="color: #ff69b4;">❤️ 2-book-receipt-frankenpatch</a></h3><a id="user-content--2-book-receipt-frankenpatch" class="anchor" aria-label="Permalink: ❤️ 2-book-receipt-frankenpatch" href="#-2-book-receipt-frankenpatch" style="color: #ff69b4;"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true" fill="#ff69b4"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
-<img width="280" height="212" alt="Reader_Alien kepub epub_p56_2025-11-03_122818" src="https://github.com/user-attachments/assets/817a9063-520d-4cbb-9675-e22cab17d10f" />
-<p dir="auto" style="color: #ff69b4;">A minamalistic tweak of <a href="https://www.reddit.com/r/koreader/comments/1on99w5/comment/nmwrieu/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button">u/SecretaryKlutzy's</a> tweak of <a href="https://www.reddit.com/r/koreader/comments/1on99w5/love_tinkering_with_user_patches/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button">u/splinters-on-cruise's</a> tweak of <a href="https://www.reddit.com/r/koreader/comments/1olvuc6/comment/nmktahu/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button">u/hundredpercentcocoa's</a> cvs receipt (whew).</p>
+### 💝 [2-stat-name-override](https://github.com/angelsangita/Koreader-Patches/blob/main/2-stat-name-override.lua)
+<details>
+<summary>✨ View details</summary>
+Rename any of the statistic widgets to whatever you want! Make sure to edit the lua file to set your custom names before installing.
+</details>
+
+### 💝 [2-rename-gestures](https://github.com/angelsangita/Koreader-Patches/blob/main/2-rename-gestures.lua)
+<details>
+<summary>✨ View details</summary>
+Customize gesture names to your preference. Works similarly to the stat rename patch, but for gestures!
+</details>
+
+### 💝 [2-straight-to-shortcut](https://github.com/angelsangita/Koreader-Patches/blob/main/2-straight-to-shortcut.lua)
+<details>
+<summary>✨ View details</summary>
+Add your folder shortcuts directly to the gesture menu for quick access, bypassing the folder shortcuts list.
+</details>
+
+### 💝 [2-foldershortcut-newlook](https://github.com/angelsangita/Koreader-Patches/blob/main/2-foldershortcut-newlook.lua)
+<details>
+<summary>✨ View details</summary>
+<img width="280" height="212" alt="Folder shortcuts new look" src="https://github.com/user-attachments/assets/2c8f404a-f4be-4757-921b-7ac8569b5056"/>
+
+  Changes the folder shortcut list to show only the shortcut name!
+</details>
+</details>
 
 
+<details open>
+<summary><h2>🎀 Project title Patches 🎀</h2></summary>
+</details>
