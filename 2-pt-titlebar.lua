@@ -17,7 +17,7 @@ local function patchCoverBrowser(plugin)
         local icon_reserved_width = self.icon_size + button_padding
         local icon_padding_width = icon_reserved_width * 0.65
         local icon_padding_height = Screen:scaleBySize(6)
-        local icon_padding_side_offset = Screen:scaleBySize(14)
+        local icon_padding_side_offset = Screen:scaleBySize(5)  -- Reduced from 14 to push buttons to edges
         
         self.left1_button = require("ui/widget/iconbutton"):new {
             icon = self.left1_icon,
