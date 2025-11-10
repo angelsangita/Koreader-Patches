@@ -17,6 +17,15 @@ Make sure to place your `.lua` files in the `patches` folder in your KOReader di
 <details open>
 <summary><h2>🎀 Normal Patches 🎀</h2></summary>
 
+### 💝 [2-browser-folder-cover](https://github.com/angelsangita/Koreader-Patches/blob/main/2-browser-folder-cover.lua)
+<details>
+<summary>✨ View details</summary>
+
+<img width="485" height="150" alt="Screenshot 2025-11-05 133814" src="https://github.com/user-attachments/assets/26291dad-1e68-4c73-8de2-6b96aab529e7" />
+  
+Rounds out the folders images to match other rounded borders. Very WIP honestly.
+</details>
+
 ### 💝 [2-stat-name-override](https://github.com/angelsangita/Koreader-Patches/blob/main/2-stat-name-override.lua)
 <details>
 <summary>✨ View details</summary>
