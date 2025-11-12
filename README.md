@@ -7,7 +7,7 @@
 Make sure to place your `.lua` files in the `patches` folder in your KOReader directory!
 
 ## 🎀 [Book Receipt Frankenpatch](https://github.com/angelsangita/Koreader-Patches/blob/main/2-book-receipt-frankenpatch.lua) 🎀
-<img width="280" height="212" alt="Reader_Alien kepub epub_p56_2025-11-03_122818" src="https://github.com/user-attachments/assets/817a9063-520d-4cbb-9675-e22cab17d10f"/>
+<img width="250" height="212" alt="Reader_Alien kepub epub_p56_2025-11-03_122818" src="https://github.com/user-attachments/assets/88f579ab-75cc-4b9a-a5b2-7e37cceae38c"/>
 
 💗 Based on tweaks by:
 - [u/hundredpercentcocoa](https://www.reddit.com/r/koreader/comments/1olvuc6/comment/nmktahu/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)'s original CVS receipt design
@@ -60,7 +60,7 @@ Changes the folder shortcut list to show only the shortcut name!
 ### 💝 [2-pt-titlebar](https://github.com/angelsangita/Koreader-Patches/blob/main/2-pt-titlebar.lua)
 <details>
 <summary>✨ View details</summary>
-<img width="485" height="55" alt="Screenshot 2025-11-05 133814" src="https://github.com/user-attachments/assets/a5f14d93-4dc0-42f6-8929-8aaa211f2576" />
+<img width="485" height="55" alt="Screenshot 2025-11-05 133814" src="https://github.com/user-attachments/assets/b5839595-d2bf-4981-90fb-599835cb9dbe" />
 
 Changes all the icons to be the same size and fixes spacing to be more equal.
 </details>
@@ -70,8 +70,8 @@ Changes all the icons to be the same size and fixes spacing to be more equal.
 <summary>✨ View details</summary>
   
 #### Removes all borders from mosaic menu mode.
-  
-<img width="300" height="400" alt="Screenshot 2025-11-05 133814" src="https://github.com/user-attachments/assets/674d5e97-ca25-41e8-8210-5299f513f26c" />
+
+<img width="300" height="400" alt="Screenshot 2025-11-05 133814" src="https://github.com/user-attachments/assets/1e9dd393-dcd0-4ace-9639-54f0d2a33e9f" />
 </details>
 
 </details>
