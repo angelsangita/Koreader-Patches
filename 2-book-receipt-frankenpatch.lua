@@ -196,8 +196,72 @@ function quicklookbox:init()
       }
   
 
-    local bookboxtitle = string.format("%s - %s", book_title, book_author)
-    local bookbox = databox("Book", bookboxtitle, book_pageno, book_pages_total, false)
+    -- Create book title widget
+    local book_title_widget = TextBoxWidget:new{
+        face = Font:getFace(db_font_face, db_font_size_mid),
+        text = book_title,
+        width = widget_width,
+        fgcolor = db_font_color,
+        bold = true,
+        padding = 0,
+    }
+    
+    -- Create author widget (smaller font, lighter color)
+    local book_author_widget = TextBoxWidget:new{
+        face = Font:getFace(db_font_face, db_font_size_small),
+        text = book_author,
+        width = widget_width,
+        fgcolor = db_font_color,
+        padding = 0,
+    }
+    
+    -- Create book info section with title, author, and progress
+    local progressbarwidth = widget_width
+    local book_progress_bar = ProgressWidget:new{
+        width = progressbarwidth,
+        height = Screen:scaleBySize(3), 
+        percentage = book_pageno/book_pages_total,
+        margin_v = 0,
+        margin_h = 0,
+        radius = 20,
+        bordersize = 0,
+        bgcolor = db_font_color_lightest,
+        fillcolor = db_font_color,
+    }
+    
+    local book_page_progress = TextWidget:new {
+        text = string.format("page %i of %i", book_pageno, book_pages_total),
+        face = Font:getFace("cfont", db_font_size_small),
+        bold = false,
+        fgcolor = db_font_color_lighter,
+        padding = 0,
+        align = "left"
+    }
+    
+    local book_percentage_display = TextWidget:new {
+        text = string.format("%i%%", book_pageno/book_pages_total*100 ),
+        face = Font:getFace("cfont", db_font_size_small),
+        bold = false,
+        fgcolor = db_font_color_lighter,
+        padding = 0,
+        align = "right"
+    }
+    
+    local book_progressmodule = VerticalGroup:new{
+        book_progress_bar,
+        HorizontalGroup:new{
+            book_page_progress, 
+            HorizontalSpan:new{width = progressbarwidth - book_page_progress:getSize().w - book_percentage_display:getSize().w},
+            book_percentage_display,
+        },
+    }
+    
+    local bookbox = VerticalGroup:new{
+        book_title_widget,
+        book_author_widget,
+        VerticalSpan:new{ width = db_padding_internal },
+        book_progressmodule,
+    }
     
     -- Add "Chapter" prefix if not already present
     local chapter_display_title = chapter_title
@@ -232,10 +296,17 @@ function quicklookbox:init()
                     w = widget_width,
                     h = max_height,
                 },
-                ImageWidget:new{
-                    image = cover_bb,
-                    width = scaled_w,
-                    height = math.min(scaled_h, max_height),
+                FrameContainer:new{
+                    padding = 0,
+                    margin = 0,
+                    bordersize = 0,
+                    radius = 10,
+                    clip = true,
+                    ImageWidget:new{
+                        image = cover_bb,
+                        width = scaled_w,
+                        height = math.min(scaled_h, max_height),
+                    },
                 },
             }
         end
@@ -327,10 +398,21 @@ Dispatcher:registerAction("quicklookbox_action", {
                             reader=true,})
 
 function ReaderUI:onQuickLook()
-    local widget = quicklookbox:new{
-        ui = self,
-        document = self.document,
-        state = self.view and self.view.state,
-    }
-    UIManager:show(widget)
+
+UIManager:nextTick(function()
+
+local widget = quicklookbox:new{
+
+ui = self,
+
+document = self.document,
+
+state = self.view and self.view.state,
+
+}
+
+UIManager:show(widget)
+
+end)
+
 end
