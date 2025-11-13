@@ -96,7 +96,7 @@ end
 
 local Folder = {
     edge = {
-        thick = Screen:scaleBySize(2.5),
+        thick = Screen:scaleBySize(1),
         margin = Size.line.medium,
         color = Blitbuffer.COLOR_GRAY_4,
         width = 0.97,
@@ -318,12 +318,16 @@ local function patchCoverBrowser(plugin)
         local offset = self._folder_image_offset
         
         local fx = x + offset.x
-        local fy = y + offset.y + 10  -- Lower the corners
+        local fy = y + offset.y + 30  -- Lower the corners
         local fw, fh = dimen.w, dimen.h
+        
+        -- Separate offsets for top and bottom corners
+        local top_corner_offset = -27  -- Adjust this to move top corners (negative = up, positive = down)
+        local bottom_corner_offset = -25  -- Adjust this to move bottom corners (negative = up, positive = down)
 
         -- Paint border around the folder image
         local cover_border = Screen:scaleBySize(0.5)
-        bb:paintBorder(fx, fy, fw, fh, cover_border, Blitbuffer.COLOR_BLACK, 0, false)
+        bb:paintBorder(fx, fy + top_corner_offset, fw, fh - top_corner_offset + bottom_corner_offset, cover_border, Blitbuffer.COLOR_BLACK, 0, false)
 
         local TL, TR, BL, BR = corners.tl, corners.tr, corners.bl, corners.br
         if not (TL and TR and BL and BR) then return end
@@ -341,13 +345,13 @@ local function patchCoverBrowser(plugin)
 
         -- Paint rounded corners
         -- Top-left
-        if TL.paintTo then TL:paintTo(bb, fx, fy) else bb:blitFrom(TL, fx, fy) end
+        if TL.paintTo then TL:paintTo(bb, fx, fy + top_corner_offset) else bb:blitFrom(TL, fx, fy + top_corner_offset) end
         -- Top-right
-        if TR.paintTo then TR:paintTo(bb, fx + fw - trw, fy) else bb:blitFrom(TR, fx + fw - trw, fy) end
+        if TR.paintTo then TR:paintTo(bb, fx + fw - trw, fy + top_corner_offset) else bb:blitFrom(TR, fx + fw - trw, fy + top_corner_offset) end
         -- Bottom-left
-        if BL.paintTo then BL:paintTo(bb, fx, fy + fh - blh) else bb:blitFrom(BL, fx, fy + fh - blh) end
+        if BL.paintTo then BL:paintTo(bb, fx, fy + fh - blh + bottom_corner_offset) else bb:blitFrom(BL, fx, fy + fh - blh + bottom_corner_offset) end
         -- Bottom-right
-        if BR.paintTo then BR:paintTo(bb, fx + fw - brw, fy + fh - brh) else bb:blitFrom(BR, fx + fw - brw, fy + fh - brh) end
+        if BR.paintTo then BR:paintTo(bb, fx + fw - brw, fy + fh - brh + bottom_corner_offset) else bb:blitFrom(BR, fx + fw - brw, fy + fh - brh + bottom_corner_offset) end
     end
 
     -- menu
