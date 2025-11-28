@@ -6,9 +6,18 @@ local cover_height_scale = 0.97  -- Adjust cover height as a scale factor (1.0 =
 local cover_y_offset_percent = 100 -- Adjust cover vertical position (in % of available vertical space). 0 = top, 50 = center (default), 100 = bottom.
 
 -- BORDER AND CORNER ICON ADJUSTMENTS
-local cover_border_thickness = 0   -- Thickness of the border around the cover (in scaled pixels)
+local cover_border_thickness = 0.5   -- Thickness of the border around the cover (in scaled pixels)
 local top_corner_offset = -7          -- Adjust top corners (negative = up, positive = down)
 local bottom_corner_offset = -7       -- Adjust bottom corners (negative = up, positive = down)
+
+-- Gap for vertical borders to clear corners vertically
+local vertical_border_gap = 10       -- Pixels to shorten the vertical border lines on both top and bottom sides.
+
+-- Gap for horizontal borders to clear corners horizontally
+local horizontal_border_gap = 10     -- Pixels to shorten the horizontal border lines on both left and right sides.
+
+-- NEW: Vertical adjustment for the top/bottom borders
+local horizontal_border_y_adjust = -3 -- Adjust the Y position of the top and bottom borders. Negative value moves them UP, positive moves them DOWN.
 
 --==========================================================================================
 local userpatch = require("userpatch")
@@ -252,30 +261,16 @@ local function patchCoverBrowser(plugin)
         }
 
         local img_options = { file = img.file, image = img.data }
-        -- Force folder custom covers to scale the same as book covers
         local original_scale_factor = math.min(target.w / img.w, target.h / img.h)
 
-        -- Calculate new height based on the user's scale factor, keeping the width scale constant
         local new_height = img.h * original_scale_factor * cover_height_scale
         local new_width = img.w * original_scale_factor
         
-        -- The scale factor for the ImageWidget is applied to the original dimensions.
-        -- We need a single scale_factor that achieves the desired new_width and new_height.
-        -- Since the original logic minimizes w and h scale, we need a new scale
-        -- that ensures the width is scaled by original_scale_factor and the height by original_scale_factor * cover_height_scale.
-        -- To maintain the aspect ratio logic while forcing a height change, 
-        -- we set the scale factor based on the smallest ratio (which will now be a "forced" ratio).
-        
-        -- To force the width to stay the same while scaling the height:
         img_options.scale_factor = original_scale_factor
-        -- We'll adjust the height of the container holding the image instead of the image widget's internal scaling logic,
-        -- as the image widget scales proportionally based on one factor.
-        -- We'll use the calculated new_width and new_height for the dimension calculation.
 
         local image = ImageWidget:new(img_options)
         local image_size = image:getSize()
 
-        -- Overwrite image size to use our calculated dimensions (width is target.w, height is scaled)
         local size = { w = new_width, h = new_height }
         
         local dimen = {
@@ -290,14 +285,11 @@ local function patchCoverBrowser(plugin)
             overlap_align = "center",
         }
         
-        -- Force the image widget to render at the scaled size
         image_widget.width = dimen.w
         image_widget.height = dimen.h
         image.width = size.w
         image.height = size.h
-        image.want_scale_to_fit = false -- Prevent further scaling logic
-        
-        -- The image widget is now scaled.
+        image.want_scale_to_fit = false
 
         local directory = self:_getTextBox { w = size.w, h = size.h }
 
@@ -319,27 +311,23 @@ local function patchCoverBrowser(plugin)
         local total_available_height = self.height - top_h
         local vertical_free_space = math.max(0, total_available_height - dimen.h)
         
-        -- Calculate vertical offset based on user's percentage setting
         local cover_y_offset_pixels = math.floor(vertical_free_space * (cover_y_offset_percent / 100))
 
         self._folder_image_dimen = dimen
         self._folder_image_offset = {
             x = math.floor((self.width - dimen.w) / 2),
-            -- Use the calculated offset for y position
             y = cover_y_offset_pixels,
         }
 
         local widget = CenterContainer:new {
             dimen = { w = self.width, h = self.height },
             VerticalGroup:new {
-                -- This VerticalSpan handles the calculated vertical offset
                 VerticalSpan:new { height = cover_y_offset_pixels },
                 OverlapGroup:new {
-                    dimen = { w = self.width, h = dimen.h }, -- Only need the height of the cover
+                    dimen = { w = self.width, h = dimen.h },
                     image_widget,
                     folder_name_widget,
                 },
-                -- The remaining VerticalSpan is just filler for centering the whole group in CenterContainer
                 VerticalSpan:new { height = math.max(0, self.height - cover_y_offset_pixels - dimen.h) },
             },
         }
@@ -353,7 +341,7 @@ local function patchCoverBrowser(plugin)
 
     function MosaicMenuItem:_getTextBox(dimen)
         local text = self.text
-        if text:match("/$") then text = text:sub(1, -2) end -- remove "/"
+        if text:match("/$") then text = text:sub(1, -2) end
         text = BD.directory(capitalize(text))
         local available_height = dimen.h
         local dir_font_size = Folder.face.dir_max_font_size
@@ -370,7 +358,7 @@ local function patchCoverBrowser(plugin)
             }
             if directory:getSize().h <= available_height then break end
             dir_font_size = dir_font_size - 1
-            if dir_font_size < 10 then -- don't go too low
+            if dir_font_size < 10 then
                 directory:free()
                 directory.height = available_height
                 directory.height_adjust = true
@@ -399,27 +387,58 @@ local function patchCoverBrowser(plugin)
         local fy = y + offset.y
         local fw, fh = dimen.w, dimen.h
         
-        -- Use user-defined border thickness and corner offsets
         local cover_border = Screen:scaleBySize(cover_border_thickness)
-
-        -- The border needs to enclose the cover. The corner offsets will move the icons
-        -- relative to the top (fy) and bottom (fy+fh) edges of the drawn cover.
-        
-        -- Paint border around the folder image
-        bb:paintBorder(
-            fx, 
-            fy, 
-            fw, 
-            fh, 
-            cover_border, 
-            Blitbuffer.COLOR_BLACK, 
-            0, 
-            false
-        )
+        local v_border_gap = Screen:scaleBySize(vertical_border_gap)
+        local h_border_gap = Screen:scaleBySize(horizontal_border_gap)
+        -- Apply the user's vertical adjustment to the horizontal borders
+        local h_border_y_offset = Screen:scaleBySize(horizontal_border_y_adjust)
 
         local TL, TR, BL, BR = corners.tl, corners.tr, corners.bl, corners.br
         if not (TL and TR and BL and BR) then return end
 
+        -- Draw vertical borders
+        local vertical_line_start_y = fy + v_border_gap
+        local vertical_line_height = fh - 2 * v_border_gap
+        
+        -- Left border
+        bb:paintRect(
+            fx, 
+            vertical_line_start_y, 
+            cover_border, 
+            vertical_line_height, 
+            Blitbuffer.COLOR_BLACK
+        )
+        -- Right border
+        bb:paintRect(
+            fx + fw - cover_border, 
+            vertical_line_start_y, 
+            cover_border, 
+            vertical_line_height, 
+            Blitbuffer.COLOR_BLACK
+        )
+
+        -- Draw horizontal borders (top and bottom) with gaps
+        local horizontal_line_start_x = fx + h_border_gap
+        local horizontal_line_width = fw - 2 * h_border_gap
+
+        -- Top border: fy + h_border_y_offset
+        bb:paintRect(
+            horizontal_line_start_x,
+            fy + h_border_y_offset,
+            horizontal_line_width,
+            cover_border,
+            Blitbuffer.COLOR_BLACK
+        )
+        -- Bottom border: fy + fh - cover_border + h_border_y_offset
+        bb:paintRect(
+            horizontal_line_start_x,
+            fy + fh - cover_border + h_border_y_offset,
+            horizontal_line_width,
+            cover_border,
+            Blitbuffer.COLOR_BLACK
+        )
+
+        -- Paint rounded corners (always drawn last to overlap borders)
         local function _sz(w)
             if w.getSize then local s = w:getSize(); return s.w, s.h end
             if w.getWidth then return w:getWidth(), w:getHeight() end
@@ -430,15 +449,14 @@ local function patchCoverBrowser(plugin)
         local trw, trh = _sz(TR)
         local blw, blh = _sz(BL)
         local brw, brh = _sz(BR)
-
-        -- Paint rounded corners
-        -- Top-left: offset from the top edge (fy)
+        
+        -- Top-left
         if TL.paintTo then TL:paintTo(bb, fx, fy + top_corner_offset) else bb:blitFrom(TL, fx, fy + top_corner_offset) end
-        -- Top-right: offset from the top edge (fy)
+        -- Top-right
         if TR.paintTo then TR:paintTo(bb, fx + fw - trw, fy + top_corner_offset) else bb:blitFrom(TR, fx + fw - trw, fy + top_corner_offset) end
-        -- Bottom-left: offset from the bottom edge (fy + fh - blh)
+        -- Bottom-left
         if BL.paintTo then BL:paintTo(bb, fx, fy + fh - blh + bottom_corner_offset) else bb:blitFrom(BL, fx, fy + fh - blh + bottom_corner_offset) end
-        -- Bottom-right: offset from the bottom edge (fy + fh - brh)
+        -- Bottom-right
         if BR.paintTo then BR:paintTo(bb, fx + fw - brw, fy + fh - brh + bottom_corner_offset) else bb:blitFrom(BR, fx + fw - brw, fy + fh - brh + bottom_corner_offset) end
     end
 
