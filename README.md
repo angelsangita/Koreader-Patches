@@ -25,6 +25,16 @@ Make sure to place your `.lua` files in the `patches` folder in your KOReader di
   
 Rounds out the folders images to match other rounded borders as well as matching the dimensions of the normal book covers.
 Also changes the way folders work so that if your folder has multiple folders inside on the base level but no lone book, it will take the first book in the first folder for the folder cover.
+Editable dimensions.
+</details>
+
+### 💝 [2-percent-badge](https://github.com/angelsangita/Koreader-Patches/blob/main/2-percent-badge.lua)
+<details>
+<summary>✨ View details</summary>
+  
+<img width="485" height="450" alt="Screenshot 2025-11-05 133814" src="https://github.com/user-attachments/assets/2abbe09f-3e5d-4245-b3e7-80cc2465f573" />
+
+An edit of [this](https://github.com/SeriousHornet/KOReader.patches/blob/main/2-percent-badge.lua). Makes it so that the percent badge also shows whether you've completed a book or put it on pause. Editable values.
 </details>
 
 ### 💝 [2-stat-name-override](https://github.com/angelsangita/Koreader-Patches/blob/main/2-stat-name-override.lua)
