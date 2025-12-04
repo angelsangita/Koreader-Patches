@@ -20,10 +20,11 @@ Make sure to place your `.lua` files in the `patches` folder in your KOReader di
 ### 💝 [2-browser-folder-cover](https://github.com/angelsangita/Koreader-Patches/blob/main/2-browser-folder-cover.lua)
 <details>
 <summary>✨ View details</summary>
-
-<img width="485" height="150" alt="Screenshot 2025-11-05 133814" src="https://github.com/user-attachments/assets/26291dad-1e68-4c73-8de2-6b96aab529e7" />
   
-Rounds out the folders images to match other rounded borders. Very WIP honestly.
+<img width="485" height="450" alt="Screenshot 2025-11-05 133814" src="https://github.com/user-attachments/assets/50095c95-19b9-4ca3-877a-5068d27021cf" />
+  
+Rounds out the folders images to match other rounded borders as well as matching the dimensions of the normal book covers.
+Also changes the way folders work so that if your folder has multiple folders inside on the base level but no lone book, it will take the first book in the first folder for the folder cover.
 </details>
 
 ### 💝 [2-stat-name-override](https://github.com/angelsangita/Koreader-Patches/blob/main/2-stat-name-override.lua)
